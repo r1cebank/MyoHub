@@ -112,9 +112,10 @@
   },
   "dependencies": {
     "bluebird": "^3.1.2",
-    "body-parser": "^1.14.2",
+    "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "hafiz": "^1.0.1",
+    "socket.io": "^1.4.5",
     "winston": "^2.1.1"
   }
 }

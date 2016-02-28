@@ -7,6 +7,9 @@
 
 
 import Winston          from 'winston';
+import Express          from 'express';
+import HTTP             from 'http';
+import BodyParser       from 'body-parser';
 import AppSingleton     from './appsingleton';
 
 function config() {
@@ -27,6 +30,15 @@ function config() {
     error   :   (tag, log) => {sharedInstance.log.error(`[${tag}] : ${log}`);},
     warn    :   (tag, log) => {sharedInstance.log.warn(`[${tag}] : ${log}`);}
   };
+  //  Express application variable
+  const app = Express();
+  sharedInstance.app = app;
+  sharedInstance.port = 3939;
+  sharedInstance.server = HTTP.createServer(sharedInstance.app);
+  //  Start the socket.io server
+  sharedInstance.io = require('socket.io')(sharedInstance.server);
+  app.use(BodyParser.json()); //  Using bodyparser for POST requests
+  app.use(BodyParser.urlencoded({ extended: false }));
 }
 
 export default {config};
