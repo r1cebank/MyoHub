@@ -37,8 +37,13 @@ function config() {
   sharedInstance.server = HTTP.createServer(sharedInstance.app);
   //  Start the socket.io server
   sharedInstance.io = require('socket.io')(sharedInstance.server);
+  sharedInstance.myoClient = sharedInstance.io.of('/myoclient');
+  sharedInstance.myoConsumer = sharedInstance.io.of('/myoconsumer');
   app.use(BodyParser.json()); //  Using bodyparser for POST requests
   app.use(BodyParser.urlencoded({ extended: false }));
+  //  Create a socket pool
+  sharedInstance.myos = [];
+  sharedInstance.myoData = [];
 }
 
 export default {config};
