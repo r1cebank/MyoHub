@@ -26,7 +26,7 @@ function onConnect(socket) {
   sharedInstance.L.info(TAG, 'Myo Client connected');
 }
 
-function onPhoneConnect(_) {
+function onPhoneConnect() {
   const TAG = 'onPhoneConnect';
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
