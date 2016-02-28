@@ -26,6 +26,13 @@ function onConnect(socket) {
   sharedInstance.L.info(TAG, 'Myo Client connected');
 }
 
+function onPhoneConnect(_) {
+  const TAG = 'onPhoneConnect';
+  //  Creating a new shared instance for winston logger
+  const sharedInstance = AppSingleton.getInstance();
+  sharedInstance.L.info(TAG, 'iPhone Client connected');
+}
+
 function onConsumerConnect() {
   const TAG = 'onConsumerConnect';
   //  Creating a new shared instance for winston logger
@@ -33,4 +40,4 @@ function onConsumerConnect() {
   sharedInstance.L.info(TAG, 'Myo Consumer connected');
 }
 
-export default {onConnect, onConsumerConnect};
+export default {onConnect, onConsumerConnect, onPhoneConnect};
