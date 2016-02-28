@@ -10,6 +10,7 @@ import Winston          from 'winston';
 import Express          from 'express';
 import HTTP             from 'http';
 import BodyParser       from 'body-parser';
+import Fs               from 'fs';
 import AppSingleton     from './appsingleton';
 
 function config() {
@@ -45,6 +46,7 @@ function config() {
   sharedInstance.myos = [];
   sharedInstance.myoData = {};
   //  Reading the private key
+  sharedInstance.cert = Fs.readFileSync(__dirname + '/../../private.pem');
 }
 
 export default {config};
