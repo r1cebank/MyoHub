@@ -13,7 +13,6 @@ async function beforeStart() {
   const TAG = 'beforeStart';
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
-  sharedInstance.io.on('connection', Events.onPhoneConnect);
   sharedInstance.myoClient.on('connection', Events.onConnect);
   sharedInstance.myoConsumer.on('connection', Events.onConsumerConnect);
   sharedInstance.L.info(TAG, 'finished running.');
