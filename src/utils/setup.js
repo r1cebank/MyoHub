@@ -44,6 +44,7 @@ function config() {
   //  Create a socket pool
   sharedInstance.myos = [];
   sharedInstance.myoData = {};
+  //  Reading the private key
 }
 
 export default {config};
