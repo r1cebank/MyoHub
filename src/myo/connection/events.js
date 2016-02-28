@@ -24,7 +24,7 @@ function onDisconnect() {
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
   //  Remove the myodata from client
-  sharedInstance.myoData[this.myoDataId] = {};
+  delete sharedInstance.myoData[this.myoDataId];
   sharedInstance.L.info(TAG, 'Myo Client disconnected');
 }
 

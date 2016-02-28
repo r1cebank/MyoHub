@@ -43,7 +43,7 @@ function config() {
   app.use(BodyParser.urlencoded({ extended: false }));
   //  Create a socket pool
   sharedInstance.myos = [];
-  sharedInstance.myoData = [];
+  sharedInstance.myoData = {};
 }
 
 export default {config};

@@ -7,16 +7,17 @@
 
 import AppSingleton     from '../utils/appsingleton';
 import Events           from './connection/events';
+import Shortid          from 'shortid';
 
 function onConnect(socket) {
   const TAG = 'onConnect';
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
   //  Pushing the socket
-  socket.myoDataId = sharedInstance.myoData.length;
+  socket.myoDataId = Shortid.generate();
   sharedInstance.myos.push(socket);
   //  Increase the myoData size
-  sharedInstance.myoData.push({});
+  sharedInstance.myoData[socket.myoDataId] = {};
   //  Set the event handlers for this connection
   socket.on('frame', Events.onFrame);
   socket.on('disconnect', Events.onDisconnect);
