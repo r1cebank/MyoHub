@@ -11,8 +11,8 @@ function myos(_, res) {
   const TAG = 'myos';
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
-  res.send(sharedInstance.myoData.length);
-  sharedInstance.L.info(TAG, 'number of myos ' + sharedInstance.myos.length);
+  res.send(Object.keys(sharedInstance.myoData).length.toString());
+  sharedInstance.L.info(TAG, 'number of myos ' + Object.keys(sharedInstance.myoData).length);
 }
 
 function pubkey(_, res) {
