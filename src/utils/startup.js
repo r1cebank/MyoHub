@@ -14,6 +14,7 @@ async function beforeStart() {
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
   sharedInstance.myoClient.on('connection', Events.onConnect);
+  sharedInstance.myoConsumer.on('connection', Events.onConsumerConnect);
   sharedInstance.L.info(TAG, 'finished running.');
   sharedInstance.app.get('/myos', Middlewares.myos);
 }
