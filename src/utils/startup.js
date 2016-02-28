@@ -17,6 +17,7 @@ async function beforeStart() {
   sharedInstance.myoConsumer.on('connection', Events.onConsumerConnect);
   sharedInstance.L.info(TAG, 'finished running.');
   sharedInstance.app.get('/myos', Middlewares.myos);
+  sharedInstance.app.get('/pubkey', Middlewares.pubkey);
 }
 
 export default {beforeStart};

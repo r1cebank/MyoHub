@@ -15,4 +15,12 @@ function myos(_, res) {
   sharedInstance.L.info(TAG, 'number of myos ' + sharedInstance.myos.length);
 }
 
-export default {myos};
+function pubkey(_, res) {
+  const TAG = 'pubkey';
+  //  Creating a new shared instance for winston logger
+  const sharedInstance = AppSingleton.getInstance();
+  res.send(sharedInstance.public);
+  sharedInstance.L.info(TAG, 'requested public key');
+}
+
+export default {myos, pubkey};

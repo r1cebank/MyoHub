@@ -47,6 +47,7 @@ function config() {
   sharedInstance.myoData = {};
   //  Reading the private key
   sharedInstance.cert = Fs.readFileSync(__dirname + '/../../private.pem');
+  sharedInstance.public = Fs.readFileSync(__dirname + '/../../public.pem');
 }
 
 export default {config};
