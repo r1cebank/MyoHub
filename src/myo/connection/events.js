@@ -6,7 +6,7 @@
  */
 
 import AppSingleton     from '../../utils/appsingleton';
-import JWT              from 'jsonwebtoken';
+//import JWT              from 'jsonwebtoken';
 
 
 function onFrame(frame) {
@@ -19,7 +19,7 @@ function onFrame(frame) {
   sharedInstance.myoData[this.myoDataId] = frame;
   sharedInstance.L.info(TAG, 'getting data from myo ' + this.myoDataId);
   //  Send the client the data back
-  sharedInstance.myoConsumer.emit('frame', JWT.sign(sharedInstance.myoData, sharedInstance.cert, { algorithm: 'RS256'}));
+  sharedInstance.myoConsumer.emit('frame', sharedInstance.myoData);
 }
 
 function onDisconnect() {
