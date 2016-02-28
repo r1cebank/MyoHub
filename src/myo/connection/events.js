@@ -6,7 +6,6 @@
  */
 
 import AppSingleton     from '../../utils/appsingleton';
-//import JWT              from 'jsonwebtoken';
 
 
 function onFrame(frame) {
