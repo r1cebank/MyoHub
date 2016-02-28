@@ -8,12 +8,14 @@
 import AppSingleton     from '../utils/appsingleton';
 import Events           from './connection/events';
 import Shortid          from 'shortid';
+import RandomColor      from 'just.randomcolor';
 
 function onConnect(socket) {
   const TAG = 'onConnect';
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
   //  Pushing the socket
+  socket.color = new RandomColor().toHex().toCSS();
   socket.myoDataId = Shortid.generate();
   sharedInstance.myos.push(socket);
   //  Increase the myoData size

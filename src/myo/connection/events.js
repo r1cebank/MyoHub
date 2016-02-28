@@ -14,6 +14,7 @@ function onFrame(frame) {
   //  Creating a new shared instance for winston logger
   const sharedInstance = AppSingleton.getInstance();
   //  Setting the myodata in the array
+  frame.color = this.color;
   sharedInstance.myoData[this.myoDataId] = frame;
   sharedInstance.L.info(TAG, 'getting data from myo ' + this.myoDataId);
   //  Send the client the data back
